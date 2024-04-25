@@ -19,7 +19,7 @@ def propagate_data(G, L):
         weight = c['weight']
         nx.set_node_attributes(L, values = {(a,b):weight}, name='weight')
 
-def get_edge_attributes(G, name):
+def get_edge_attributes(G, name): # https://stackoverflow.com/questions/62564983/how-to-efficiently-get-edge-weights-from-a-networkx-graph-nx-graph
     edges = G.edges(data=True)
     return dict( (x[:-1], x[-1][name]) for x in edges if name in x[-1] )
     
